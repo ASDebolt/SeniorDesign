@@ -1,0 +1,53 @@
+//
+//  ConfirmAddViewController.swift
+//  SeniorDesignProject
+//
+//  Created by Erik Traulsen on 12/20/15.
+//  Copyright (c) 2015 Team 1532. All rights reserved.
+//
+
+import UIKit
+
+class ConfirmAddViewController: UIViewController {
+    var athlete: athleteProfile!
+    
+    @IBOutlet weak var AthleteName: UILabel!
+    
+    @IBOutlet weak var DeviceID: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.AthleteName.text = athlete.athleteName
+        self.DeviceID.text = athlete.hardwareID
+        // Do any additional setup after loading the view.
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "goHome"){
+            let homeVC:homeViewController = segue.destinationViewController as homeViewController
+            let data = sender as athleteProfile
+            homeVC.athlete = data
+        }
+    }
+    
+    @IBAction func pressOkay(sender: AnyObject) {
+        self.performSegueWithIdentifier("goHome", sender: athlete)
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
