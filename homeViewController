@@ -1,0 +1,64 @@
+//
+//  homeViewController.swift
+//  SeniorDesignProject
+//
+//  Created by Erik Traulsen on 12/19/15.
+//  Copyright (c) 2015 Team 1532. All rights reserved.
+//
+
+import UIKit
+
+class homeViewController: UIViewController {
+
+    var athlete: athleteProfile!
+    var athleteRegister: [athleteProfile] = []
+    
+    
+    override func viewDidLoad() { //POTENTIAL PROBLEM: Adding the athlete without replacing the exisitng althetes could be hard.
+        super.viewDidLoad()
+        println("The AthleteName \(athlete.athleteName)");
+        println("The HardwareID \(athlete.hardwareID)");
+        var addingAthlete = athleteProfile()
+        addingAthlete.athleteName = athlete.athleteName
+        addingAthlete.hardwareID = athlete.hardwareID
+        athleteRegister.append(addingAthlete)
+        // Do any additional setup after loading the view.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "profiles"){
+            let homeVC:ProfileViewController = segue.destinationViewController as ProfileViewController
+            let data = sender as [athleteProfile]
+            homeVC.athleteRegister = data
+        }
+
+        
+        
+    }
+    
+    @IBAction func profile(sender: AnyObject) {
+        self.performSegueWithIdentifier("displayProfiles", sender: athleteRegister)
+    }
+
+    @IBAction func message(sender: AnyObject) {
+        self.performSegueWithIdentifier("sendMessage", sender: athleteRegister)
+
+    }
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
