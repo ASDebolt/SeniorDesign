@@ -1,0 +1,20 @@
+//
+//  workoutAnalytics.swift
+//  SeniorDesignProject
+//
+//  Created by Erik Traulsen on 12/19/15.
+//  Copyright (c) 2015 Team 1532. All rights reserved.
+//
+
+import Foundation
+//import NSDate HAVING PROBLEMS WITH THIS.
+
+class workoutAnalytics:NSObject{
+    
+  //  var startTime: NSDate!
+  //  var endTime: NSDate!
+    var averageHR: Float!
+    var minHR: Float!
+    var maxHR: Float!
+    
+}
