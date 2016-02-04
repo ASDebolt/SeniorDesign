@@ -1,0 +1,18 @@
+//
+//  athleteAnalytics.swift
+//  SeniorDesignProject
+//
+//  Created by Erik Traulsen on 12/19/15.
+//  Copyright (c) 2015 Team 1532. All rights reserved.
+//
+
+import Foundation
+
+class athleteAnalytics:NSObject{
+    
+    var arverageHR: Float!
+    var maxHR: Float!
+    var minHR: Float!
+    var averageExerciseDurration: Float!
+    
+}
