@@ -1,0 +1,31 @@
+//
+//  AthleteProfile.swift
+//  SeniorDesignProject
+//
+//  Created by Erik Traulsen on 12/19/15.
+//  Copyright (c) 2015 Team 1532. All rights reserved.
+//
+
+import Foundation
+
+class athleteProfile:NSObject{
+    
+    var hardwareID: String!
+    var athleteName: String!
+    var inWorkout: Bool!
+    var currentHR: Float!
+    var displayingOnGraph: Bool!
+    var statistics: athleteAnalytics!
+    var workouts: workout! //this is only one it needs to be a bunch of them
+    
+    override init() {
+        hardwareID = "temp";
+        athleteName = "temp";
+        inWorkout = false;
+        currentHR = 0;
+        displayingOnGraph = false;
+        statistics = nil;
+        workouts = nil;
+    }
+    
+}
